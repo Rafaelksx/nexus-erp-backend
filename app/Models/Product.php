@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Multitenantable; // <--- Importar
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasFactory;
-    
+    use HasFactory, Multitenantable; 
+
     protected $fillable = ['company_id', 'sku', 'barcode', 'name', 'base_price'];
 
     public function company()

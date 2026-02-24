@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\Multitenantable; // <--- Importar
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Inventory extends Model
 {
-    use HasFactory;
+    use HasFactory, Multitenantable;
 
     protected $fillable = ['product_id', 'branch_id', 'quantity', 'min_alert'];
     

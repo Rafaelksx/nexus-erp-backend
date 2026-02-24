@@ -33,5 +33,12 @@ class InitialSetupSeeder extends Seeder
         \App\Models\Product::factory()
             ->count(50)
             ->create(['company_id' => $company->id]);
+
+        $user = \App\Models\User::create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'company_id' => $company->id
+        ]);
     }
 }
